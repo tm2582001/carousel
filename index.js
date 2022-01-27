@@ -4,6 +4,8 @@ let classes = (classes)=>document.getElementsByClassName(classes);
 
 let displayData = (carouselData)=>{
   carouselData.map((slideData,index)=>{
+    
+    //Rendering Indicator button
     let carouselIndicatorsDiv = classes("carousel-indicators")[0];
 
     let carouselIndicatorButton = document.createElement("button");
@@ -16,7 +18,7 @@ let displayData = (carouselData)=>{
 
     carouselIndicatorsDiv.appendChild(carouselIndicatorButton);
 
-
+    // rendering main carousel data and comment
     let carouselInnerDiv =classes("carousel-inner")[0];
 
     let CarouselItemDiv = document.createElement("div");
@@ -26,20 +28,40 @@ let displayData = (carouselData)=>{
     }
     CarouselItemDiv.style.background = slideData.category.bgColor;
     CarouselItemDiv.style.color = slideData.category.color;
-
+    
+    // caption
     let CarouselCaptionDiv = document.createElement("div");
     CarouselCaptionDiv.setAttribute("class","carousel-caption d-none d-md-block");
 
     let CarouselContentP = document.createElement("p");
     
-    CarouselContentP.innerHTML = slideData.titleRaw;
-
+    CarouselContentP.innerHTML = `Title- ${slideData.titleRaw}`;
+    
     CarouselCaptionDiv.appendChild(CarouselContentP);
+    
 
+    // main content
     let MainCarouselContentH2 = document.createElement("h2");
     MainCarouselContentH2.innerHTML = slideData.description;
+    
+    let UserWrapperDiv = document.createElement("div");
+    UserWrapperDiv.classList.add("user-wrapper");
+
+
+    let UserIconDiv = document.createElement("div");
+    UserIconDiv.classList.add("user-icon");
+    UserIconDiv.innerHTML = slideData.user["icon:text"];
+    UserIconDiv.style.background = slideData.user["icon:bgColor"];
+
+    let UsernameP = document.createElement("p");
+    UsernameP.innerHTML = slideData.user.username;
+
+    UserWrapperDiv.appendChild(UserIconDiv);
+    UserWrapperDiv.appendChild(UsernameP);
+
 
     CarouselItemDiv.appendChild(MainCarouselContentH2);
+    CarouselItemDiv.appendChild(UserWrapperDiv);
     CarouselItemDiv.appendChild(CarouselCaptionDiv);
     carouselInnerDiv.appendChild(CarouselItemDiv); 
   });

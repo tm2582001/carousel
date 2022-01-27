@@ -1,6 +1,55 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.carousel-item {
+  padding: 120px;
+  text-align: center;
+}
+
+.carousel-item h2 {
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.user-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.user-wrapper p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .carousel-caption {
-  background: red;
   opacity: 0;
+  height: 200px;
+  border-radius: 28px 28px 0 0;
+
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+
   -webkit-transition: all 0.3s ease-in-out 0s;
   -moz-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
@@ -8,4 +57,16 @@
 
 .carousel-inner:hover .carousel-caption {
   opacity: 1;
+}
+
+.carousel-caption p {
+  font-size: 20px;
+  font-weight: 650;
+}
+
+@media (max-width: 560px) {
+  .carousel-item {
+    padding: 75px;
+    text-align: center;
+  }
 }
