@@ -1,0 +1,11 @@
+.carousel-caption {
+  background: red;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.carousel-inner:hover .carousel-caption {
+  opacity: 1;
+}
